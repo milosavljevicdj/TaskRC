@@ -1,0 +1,55 @@
+﻿<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    tr.colored:nth-child(even) {
+        background-color: lightcoral;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover, tr.colored:hover {
+        background-color: #ddd;
+    }
+
+    .colored {
+        background-color: lightcoral;
+    }
+
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Total Time worked</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr class="@((employee.TotalTime < 100) ? "colored" : "")">
+                <td>@employee.Name</td>
+                <td>@employee.TotalTime</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
